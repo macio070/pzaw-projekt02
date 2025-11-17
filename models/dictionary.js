@@ -1,6 +1,6 @@
 const dictionary = {
-    "zwierzeta":{
-        name: "zwierzeta",
+    "zwierzęta":{
+        name: "zwierzęta",
         entry: [
             {english: "cat", polish: "kot"},
             {english: "dog", polish: "pies"},
@@ -15,7 +15,7 @@ const dictionary = {
             {english: "red", polish: "czerwony"},
             {english: "blue", polish: "niebieski"},
             {english: "green", polish: "zielony"},
-            {english: "yellow", polish: "zolty"},
+            {english: "yellow", polish: "żółty"},
             {english: "black", polish: "czarny"}
         ]
     },
@@ -25,7 +25,7 @@ const dictionary = {
             {english: "bread", polish: "chleb"},
             {english: "milk", polish: "mleko"},
             {english: "cheese", polish: "ser"},
-            {english: "apple", polish: "jablko"},
+            {english: "apple", polish: "jabłko"},
             {english: "banana", polish: "banan"}
         ]
     }

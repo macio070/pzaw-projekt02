@@ -1,19 +1,21 @@
 <%- include("partials/head.ejs") %>
-<main>
-  <button><a href="/dictionary">Powrót</a></button>
-  <h1><%= title %></h1>
-  <ul id="flashcards">
-    <% subject.entry.forEach(function(entry){ %>
-    <li>
-      🇬🇧 : <%= entry.english %>
-      <br />
-      🇵🇱 : <%= entry.polish %>
-    </li>
-    <% }) %>
-  </ul>
-  <div>
-    <h3>Nowe tłumaczenie</h3>
-    <%- include("new_card.ejs") %>
-  </div>
-</main>
-<%- include("partials/foot.ejs") %>
+  <main>
+    <button><a href="/dictionary">Powrót</a></button>
+    <h1>
+      <%= title %>
+    </h1>
+    <ul id="flashcards">
+      <% subject.entry.forEach(function(entry){ %>
+        <li>
+          English : <%= entry.english %>
+          <br />
+          Polish : <%= entry.polish %>
+        </li>
+        <% }) %>
+    </ul>
+    <div>
+      <h3>Nowe tłumaczenie</h3>
+      <%- include("new_card.ejs") %>
+    </div>
+  </main>
+  <%- include("partials/foot.ejs") %>

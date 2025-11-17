@@ -1,5 +1,5 @@
 html {
-    background-color: #830;
+    background-color: rgb(0, 86, 136);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 11pt;
 }
@@ -11,8 +11,8 @@ body {
 }
 
 main {
-    background-color: #ded;
-    width: 70rem;
+    background-color: rgb(238, 221, 221);
+    width: 100rem;
     padding: 1rem;
     border-radius: 0.5rem;
 }

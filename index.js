@@ -25,7 +25,7 @@ app.get("/dictionary", (req, res) => {
 app.get("/dictionary/:subject", (req, res) => {
   const subject = getSubjectData(req.params.subject);
   if (subject != null) {
-    res.render("subject", {
+    res.render("subject", { 
       title: subject.name,
       subject,
     });
