@@ -47,7 +47,7 @@ app.post("/games/new", (req, res) => {
     title,
     genre,
     platform,
-    release_year,
+    release_date,
     developer,
     description,
     link,
@@ -57,7 +57,7 @@ app.post("/games/new", (req, res) => {
   games[title] = {
     genre: genre.split(",").map((g) => capitalizeFirstLetter(g)),
     platform: platform.split(",").map((p) => capitalizeFirstLetter(p)),
-    release_year: parseInt(release_year),
+    release_date: new Date(release_date),
     developer: developer,
     description: description,
     link: link,

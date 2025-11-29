@@ -2,7 +2,7 @@ export const games = {
     "Valorant": {
         genre: ["FPS"],
         platform: ["PC", "Consoles"],
-        release_year: 2020,
+        release_date: new Date("2020-06-02"),
         developer: "Riot Games",
         description: "A team-based tactical shooter that relies on precise gunplay and unique agent abilities.",
         link: "https://playvalorant.com/",
@@ -11,7 +11,7 @@ export const games = {
     "The Witcher 3: Wild Hunt": {
         genre: ["RPG"],
         platform: ["PC", "Consoles", "Switch"],
-        release_year: 2015,
+        release_date: new Date("2015-05-19"),
         developer: "CD Projekt Red",
         description: "An open-world RPG following Geralt of Rivia on his quest.",
         link: "https://thewitcher.com/en/witcher3",
@@ -20,7 +20,7 @@ export const games = {
     "Minecraft": {
         genre: ["Sandbox", "Survival"],
         platform: ["PC", "Consoles", "Mobile"],
-        release_year: 2011,
+        release_date: new Date("2011-11-18"),
         developer: "Mojang Studios",
         description: "A sandbox game about placing blocks and going on adventures.",
         link: "https://www.minecraft.net/",
@@ -29,7 +29,7 @@ export const games = {
     "Counter-Strike 2": {
         genre: ["FPS"],
         platform: ["PC"],
-        release_year: 2023,
+        release_date: new Date("2023-09-27"),
         developer: "Valve Corporation",
         description: "The latest installment in the classic tactical shooter seies. It relies on team strategy and precise shooting skills.",
         link: "https://counter-strike.net/",
@@ -38,7 +38,7 @@ export const games = {
     "Cyberpunk 2077": {
         genre: ["RPG", "Action"],
         platform: ["PC", "Consoles"],
-        release_year: 2020,
+        release_date: new Date("2020-12-10"),
         developer: "CD Projekt Red",
         description: "An open-world RPG set in a dystopian future, focusing on narrative and player choice.",
         link: "https://www.cyberpunk.net/",
@@ -47,7 +47,7 @@ export const games = {
     "GTA V": {
         genre: ["Action", "Adventure"],
         platform: ["PC", "Consoles"],
-        release_year: 2013,
+        release_date: new Date("2013-09-17"),
         developer: "Rockstar Games",
         description: "An open-world action-adventure game set in the fictional state of San Andreas.",
         link: "https://www.rockstargames.com/gta-v/",
@@ -56,7 +56,7 @@ export const games = {
     "Overwatch 2": {
         genre: ["FPS"],
         platform: ["PC", "Consoles"],
-        release_year: 2022,
+        release_date: new Date("2022-10-04"),
         developer: "Blizzard Entertainment",
         description: "A team-based multiplayer shooter with a focus on hero abilities and teamwork. ",
         link: "https://playoverwatch.com/",
