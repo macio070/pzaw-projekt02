@@ -1,7 +1,11 @@
 import express from "express";
-import dictionary, { getSubjects, getSubjectData } from "./models/dictionary.js";
 import fs from "node:fs";
-
+import {
+  getGameTitles,
+  getGameData,
+  getAllGameImages,
+  games,
+} from "./models/videogames.js";
 const port = 8000;
 
 const app = express();
@@ -9,47 +13,70 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded());
 
-
 const html = fs.readFileSync("public/index.html");
 app.get("/", (req, res) => {
   res.end(html);
 });
 
-app.get("/dictionary", (req, res) => {
-  res.render("dictionary", {
-    title: "Słownik polsko-angielski",
-    subjects: getSubjects(),
+app.get("/games", (req, res) => {
+  res.render("games", {
+    title: "List of Video Games",
+    games: getGameTitles(),
+    images: getAllGameImages(),
   });
 });
 
-app.get("/dictionary/:subject", (req, res) => {
-  const subject = getSubjectData(req.params.subject);
-  if (subject != null) {
-    res.render("subject", { 
-      title: subject.name,
-      subject,
+app.get("/games/:title", (req, res) => {
+  const title = req.params.title;
+  if (title === "new") {
+    res.render("newGame", {
+      title: "Add New Game",
     });
+  } else if (!getGameTitles().includes(title)) {
+    res.status(404).end("Game not found");
   } else {
-    res.sendStatus(404);
+    res.render("game", {
+      title: title,
+      game: getGameData(title),
+    });
   }
 });
 
-app.post("/dictionary/:subject/add", (req, res) => {
-  const subject = getSubjectData(req.params.subject);
-  if (subject != null) {
-    const { english, polish } = req.body;
-     
-    if (english && polish) {
-      dictionary[subject.id].entry.push({ english: english, polish: polish });
-      res.redirect(`/dictionary/${subject.id}`);
-    } else {
-      res.status(400).send("Angielski i Polski jest wymagany.");
-    }
-  } else {
-    res.sendStatus(404);
-  }
+app.post("/games/new", (req, res) => {
+  const {
+    title,
+    genre,
+    platform,
+    release_year,
+    developer,
+    description,
+    link,
+    logo,
+  } = req.body;
+
+  games[title] = {
+    genre: genre.split(",").map((g) => capitalizeFirstLetter(g)),
+    platform: platform.split(",").map((p) => capitalizeFirstLetter(p)),
+    release_year: parseInt(release_year),
+    developer: developer,
+    description: description,
+    link: link,
+    image: logo,
+  };
+
+  res.redirect(`/games/`);
+});
+
+app.get("/random", (req, res) => {
+  const titles = getGameTitles();
+  const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+  res.redirect(`/games/${randomTitle}`);
 });
 
 app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`);
 });
+
+const capitalizeFirstLetter = (string) => {
+  return string.trim().charAt(0).toUpperCase() + string.slice(1);
+};
